@@ -1,0 +1,25 @@
+/* linea de comentario en css */
+
+
+
+/* formas de aplicar estilos  */
+
+/* mediante nombre de etiqueta */
+header{
+    background-color: beige;
+}
+
+/* mediante CLASS */
+.black{
+    color: black;
+}
+
+/* mediante ID */
+.parrafo{
+    color: rgb(87, 87, 87);
+}
+
+h2{
+    color: rgb(24, 24, 24);
+}
+
