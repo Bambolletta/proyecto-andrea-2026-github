@@ -1,60 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- link de mi css -->
-    <link rel="stylesheet" href="css/style.css">
-    <title>Portfolio_entrega 2 </title>
-    <!-- CSS, estilos desde el head -->
-    <style>
-        p{
-            color: rgb(87, 87, 87);
-            text-align: center;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous"
+  >
+
+  <!-- CSS propio -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <title>Contacto</title>
 </head>
-<body>
-    <!-- etiqueta para el banner principal -->
-    <header> <!-- etiqueta para las img  -->
-        <img src="img/logo.png" alt="">
-        <!-- etiqueta para el menu de navegacion -->
-        <nav>
-            <!-- etiqueta para una lista desordenada -->
-            <ul>
-                <li>
-                     <!--etiqueta para enlaces  -->
-                     <a href="../index.html">
-                        Home
-                        <img src="" alt="">
-                    </a>
-                    <a href="pages/Sobre mí.html">
-                        Sobre mí 
-                    </a>
-                    <a href="pages/Portfolio.html">
-                        Portfolio 
-                    </a>
-                    <a href="pages/Contacto.html">
-                        Contacto 
-                    </a>            
-            </ul>
-        </nav>
-    </header> 
 
-    <!-- etiqueta para el contenido principal -->
-    <main>
-        <!-- titulo de mi pagina  -->
+<body class="page-contacto">
+  <!-- Header (igual que el resto, mobile = desktop) -->
+  <header>
+    <nav>
+      <a href="../index.html" class="text-left fw-normal text-lowercase fs-5">andrea-campoy.com</a>
+      <a href="sobre-mi.html" class="text-end fw-normal text-lowercase fs-5">sobre mí</a>
+      <a href="portfolio.html" class="text-end fw-normal text-lowercase fs-5">portfolio</a>
+      <a href="contacto.html" class="text-end fw-normal text-lowercase fs-5">contacto</a>
+    </nav>
+  </header>
 
-        <!-- CSS, estilos en linea  -->
-                          
-        <h1> Heading 1 - Título tentativo 1 </h1>
-        <h2> Ciudad • País</h2>
-        <h3> Crear FORMULARIO</h3>
-        <h3> Botón - Call To Action.</h3>
-    </main>
-    <!-- etiqueta para el pie de pagina  -->
-    <footer>
-        <p class="black"> Todos los derechos reservados o Copyright © 2026 + Text | Política de privacidad | Términos y condiciones | Lineamientos editoriales </p>
-    </footer>
+  <!-- Main (wireframe contacto) -->
+  <main class="contacto-hero">
+    <h1 class="text-left fw-bold text-lowercase fs-1">conectemos</h1>
+
+    <p class="contacto-meta">Montevideo • Uruguay</p>
+
+    <!-- Formulario (estructura simple, después lo estilizamos) -->
+    <form class="contacto-form" action="#" method="post">
+      <!-- Nombre -->
+      <fieldset class="contacto-fieldset">
+        <legend class="contacto-legend">Nombre <span class="contacto-required">(requerido)</span></legend>
+
+        <div class="contacto-row">
+          <label class="contacto-label">
+            <span>Nombre</span>
+            <input type="text" name="first_name" required>
+          </label>
+
+          <label class="contacto-label">
+            <span>Apellido</span>
+            <input type="text" name="last_name" required>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Email -->
+      <label class="contacto-label">
+        <span>Email <span class="contacto-required">(requerido)</span></span>
+        <input type="email" name="email" required>
+      </label>
+
+      <!-- Teléfono -->
+      <fieldset class="contacto-fieldset">
+        <legend class="contacto-legend">Teléfono <span class="contacto-required">(requerido)</span></legend>
+
+        <div class="contacto-row">
+          <label class="contacto-label">
+            <span>País</span>
+            <select name="country" required>
+              <option value="">Seleccionar</option>
+              <option value="uy">Uruguay</option>
+              <option value="ar">Argentina</option>
+              <option value="cl">Chile</option>
+            </select>
+          </label>
+
+          <label class="contacto-label">
+            <span>Número</span>
+            <input type="tel" name="phone" placeholder="+598 ..." required>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Servicios (checkbox) -->
+      <fieldset class="contacto-fieldset">
+        <legend class="contacto-legend">
+          Marcá lo que te interese <span class="contacto-required">(requerido)</span>
+        </legend>
+        <p class="contacto-help">Lista de servicios creativos.</p>
+
+        <label class="contacto-check"><input type="checkbox" name="service" required> <span>Item</span></label>
+        <label class="contacto-check"><input type="checkbox" name="service"> <span>Item</span></label>
+        <label class="contacto-check"><input type="checkbox" name="service"> <span>Item</span></label>
+      </fieldset>
+
+      <!-- Presupuesto -->
+      <label class="contacto-label">
+        <span>Presupuesto</span>
+        <input type="text" name="budget" placeholder="USD / UYU / ARS">
+      </label>
+
+      <!-- Mensaje -->
+      <label class="contacto-label">
+        <span>Mensaje <span class="contacto-required">(requerido)</span></span>
+        <textarea name="message" rows="5" required></textarea>
+      </label>
+
+      <!-- Preferencia contacto -->
+      <fieldset class="contacto-fieldset">
+        <legend class="contacto-legend">¿Cómo preferís que te contacte? <span class="contacto-required">(requerido)</span></legend>
+
+        <label class="contacto-check"><input type="checkbox" name="pref" required> <span>Email</span></label>
+        <label class="contacto-check"><input type="checkbox" name="pref"> <span>WhatsApp</span></label>
+      </fieldset>
+
+      <!-- CTA -->
+      <button class="cta contacto-submit" type="submit">Call To Action</button>
+    </form>
+  </main>
+
+   <!-- Bloque final: suscripción -->
+  <section class="about-bottom">
+    <div class="about-bottom__content">
+      <h2 class="fw-normal fs-4">Suscribite aquí</h2>
+      <p class="about-bottom__text">
+        Para recibir actualizaciones de mi trabajo, te invito a que me dejes tu mail
+      </p>
+
+      <form class="about-form" action="#" method="post">
+        <label class="visually-hidden" for="email-suscripcion">Email</label>
+        <input
+          id="email-suscripcion"
+          name="email"
+          type="email"
+          placeholder="Text input"
+          required
+        >
+        <button class="about-btn" type="submit">Call To Action</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="black">
+      Todos los derechos reservados Andrea Campoy, 2026 | Política de privacidad | Términos y condiciones | Lineamientos editoriales
+    </p>
+  </footer>
 </body>
 </html>
