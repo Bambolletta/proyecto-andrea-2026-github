@@ -89,7 +89,7 @@ main p{
 
 /* =========================
 Secciones de texto (Grid)
-- GRID: mismo patrón que main
+- GRID: repite patrón como main
 ========================= */
 section:not(.imagenes):not(.lista){
   display: grid;              /* GRID */
