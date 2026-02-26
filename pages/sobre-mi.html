@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap (framework) -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous"
+  >
+
+  <!-- CSS propio (ruta desde /pages) -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <title>Sobre mí</title>
+</head>
+
+<body class="page-about">
+  <!-- HEADER (Flexbox en CSS + utilidades Bootstrap en texto) -->
+  <header>
+    <nav>
+      <a href="../index.html" class="text-left fw-normal text-lowercase fs-5">andrea-campoy.com</a>
+
+      <a href="sobre-mi.html" class="text-end fw-normal text-lowercase fs-5">sobre mí</a>
+      <a href="portfolio.html" class="text-end fw-normal text-lowercase fs-5">portfolio</a>
+      <a href="contacto.html" class="text-end fw-normal text-lowercase fs-5">contacto</a>
+
+      <!-- Mobile: “+” (sin JS, solo visual) -->
+      <span class="nav-plus" aria-hidden="true">+</span>
+    </nav>
+  </header>
+
+  <!-- HERO (Grid en CSS) -->
+  <main class="about-hero">
+    <h1 class="text-left fw-bold text-lowercase fs-1">Sobre<br>mí.</h1>
+
+    <p class="about-p">Párrafo 1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="about-p about-p--spaced">Párrafo 2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </main>
+
+  <!-- BLOQUE FINAL (Grid/Flex en CSS) -->
+  <section class="about-bottom">
+    <div class="about-bottom__content">
+      <h2 class="fw-normal fs-4">Suscribite aquí</h2>
+      <p class="about-bottom__text">Para recibir actualizaciones de mi trabajo, te invito a que me dejes tu mail</p>
+
+      <form class="about-form" action="#" method="post">
+        <label class="visually-hidden" for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="Text input" required>
+        <button class="about-btn" type="submit">Call To Action</button>
+      </form>
+
+    <footer>
+        <p class="black">Todos los derechos reservados Andrea Campoy, 2026 | Política de privacidad | Términos y condiciones | Lineamientos editoriales</p>
+    </footer>
+    </div>
+  </section>
+</body>
+</html>

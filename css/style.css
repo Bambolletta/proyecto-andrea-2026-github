@@ -1,25 +1,491 @@
-/* linea de comentario en css */
+/* =========================
+Base (Box Model) + variables
+- Box Model: padding, border
+========================= */
+:root{
+  --px: 32px;
+  --line: 1px solid #111;
+  --soft: 1px solid #bbb;
+}
 
+body{
+  margin: 0;
+  color: #111;
+}
 
+/* Padding lateral global (Box Model) */
+header, main, section, footer{
+  padding-left: var(--px);
+  padding-right: var(--px);
+}
 
-/* formas de aplicar estilos  */
+/* Separadores wireframe (Box Model) */
+header{ border-bottom: var(--line); }
+main{ border-bottom: var(--line); }
+section{ border-bottom: var(--line); }
+footer{ border-top: var(--line); }
 
-/* mediante nombre de etiqueta */
+/* =========================
+Header / Nav (Flexbox)
+- FLEXBOX: display:flex, gap, margin-left:auto
+========================= */
 header{
-    background-color: beige;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
-/* mediante CLASS */
-.black{
-    color: black;
+header nav{
+  display: flex;              /* FLEXBOX */
+  align-items: center;
+  gap: 16px;
 }
 
-/* mediante ID */
-.parrafo{
-    color: rgb(87, 87, 87);
+header nav a{
+  color: #111;
+  text-decoration: none;
 }
 
-h2{
-    color: rgb(24, 24, 24);
+/* Caja del logo (Box Model) */
+header nav a:first-child{
+  border: var(--line);
+  padding: 6px 10px;
 }
 
+/* Empuja menú a la derecha (Flexbox) */
+header nav a:nth-child(2){
+  margin-left: auto;
+}
+
+/* =========================
+Main (Grid)
+- GRID: H1/H2 izquierda, CTA derecha, tagline abajo
+========================= */
+main{
+  display: grid;              /* GRID */
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "h1 cta"
+    "h2 cta"
+    "tag tag";
+  gap: 12px 18px;
+  align-items: end;
+
+  padding-top: 40px;
+  padding-bottom: 34px;
+}
+
+main h1{ grid-area: h1; margin: 0; }
+main h2{ grid-area: h2; margin: 0; }
+main .cta{ grid-area: cta; justify-self: end; margin: 0; }
+
+main p{
+  grid-area: tag;
+  text-align: center;
+  margin: 14px 0 0;
+  border-top: var(--line);
+  padding-top: 12px;
+  font-size: 12px;            /* tagline */
+}
+
+/* =========================
+Secciones de texto (Grid)
+- GRID: mismo patrón que main
+========================= */
+section:not(.imagenes):not(.lista){
+  display: grid;              /* GRID */
+  grid-template-columns: 1fr auto;
+  gap: 12px 18px;
+  align-items: end;
+
+  padding-top: 48px;
+  padding-bottom: 32px;
+}
+
+/* H1/H2 siempre a la izquierda (Grid) */
+section:not(.imagenes):not(.lista) h1,
+section:not(.imagenes):not(.lista) h2{
+  grid-column: 1;
+  margin: 0;
+}
+
+/* CTA siempre a la derecha (Grid) */
+section:not(.imagenes):not(.lista) .cta{
+  grid-column: 2;
+  justify-self: end;
+  align-self: end;
+  margin: 0;
+}
+
+/* =========================
+CTA (Box Model)
+- Box Model: border, padding, radius
+- Bootstrap override: h3 suele ser grande → lo fijamos
+========================= */
+.cta{
+  border: var(--line);
+  padding: 9px 16px;
+  border-radius: 999px;
+  display: inline-block;
+  font-size: 12px;            /* evita CTA enorme por ser h3 */
+  line-height: 1;
+}
+
+/* Quita margen default del h3 (Bootstrap/UA) */
+h3{ margin: 0; }
+
+/* =========================
+Imágenes (Grid)
+- GRID: 3 columnas
+- Box Model: border
+========================= */
+section.imagenes{
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+
+.imagenes{
+  display: grid;              /* GRID */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.imagen{
+  display: grid;
+  gap: 10px;
+}
+
+.imagen img{
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  border: var(--line);
+}
+
+.imagen h2{
+  margin: 0;
+  font-size: 12px;
+}
+
+.imagen a{
+  font-size: 11px;
+  text-decoration: underline;
+  color: #111;
+}
+
+/* =========================
+Lista “Item +” (Flexbox)
+- FLEXBOX: justify-content: space-between
+========================= */
+section.lista{
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.lista-items{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: var(--soft);
+}
+
+.lista-items li{
+  display: flex;              /* FLEXBOX */
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 0;
+  border-bottom: var(--soft);
+  font-size: 12px;
+}
+
+.lista-items .plus{
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* =========================
+Tipografía (Bootstrap override)
+- BOOTSTRAP: tus H1/H2 tienen fs-1/fs-4
+  entonces forzamos tamaños consistentes
+========================= */
+main h1.fs-1,
+section h1.fs-1{
+  font-size: 72px !important;
+  line-height: 0.92 !important;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px !important;
+}
+
+main h2.fs-4,
+section h2.fs-4{
+  font-size: 16px !important;
+  line-height: 1.25 !important;
+  font-weight: 400 !important;
+}
+
+/* =========================
+Footer (Box Model)
+========================= */
+footer{
+  padding-top: 28px;
+  padding-bottom: 36px;
+}
+
+footer p{
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+footer .black{ color: #111; }
+
+/* =========================
+Responsive (Grid)
+========================= */
+@media (max-width: 820px){
+
+  /* Main: 1 columna */
+  main{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "h1"
+      "h2"
+      "cta"
+      "tag";
+    align-items: start;
+  }
+
+  main .cta{ justify-self: start; }
+
+  /* Secciones texto: 1 columna */
+  section:not(.imagenes):not(.lista){
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  section:not(.imagenes):not(.lista) .cta{
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  /* Imágenes: 1 columna */
+  .imagenes{ grid-template-columns: 1fr; }
+
+  /* Tipografía */
+  main h1.fs-1,
+  section h1.fs-1{
+    font-size: 52px !important;
+    line-height: 0.95 !important;
+  }
+
+  main h2.fs-4,
+  section h2.fs-4{
+    font-size: 14px !important;
+  }
+}
+
+/* =========================
+SOBRE MÍ
+- FLEX: layout vertical
+- GRID/FLEX: bloque final + formulario
+- Box Model: padding/borders
+- Pseudoclases: hover / focus-visible
+========================= */
+
+/* Pagina sobre mí - page about */
+.page-about *{
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Líneas */
+.page-about main,
+.page-about section{
+  border-bottom: var(--line);
+}
+
+/* Menú igual a desktop */
+.page-about .nav-plus{
+  display: none !important;
+}
+
+/* HERO */
+.page-about .about-hero{
+  display: flex;              /* FLEXBOX */
+  flex-direction: column;
+  gap: 24px;
+
+  padding-top: 72px;
+  padding-bottom: 72px;
+
+  width: 100%;
+  margin: 0;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Párrafos */
+.page-about .about-p{
+  margin: 0;
+  max-width: 70ch;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Aire entre párrafo 1 y 2 */
+.page-about .about-p--spaced{
+  margin-top: 90px;
+}
+
+/* BLOQUE FINAL */
+.page-about .about-bottom{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.page-about .about-bottom__content{
+  display: grid;              /* GRID */
+  gap: 14px;
+  text-align: left;
+}
+
+/* Form */
+.page-about .about-form{
+  display: flex;              /* FLEXBOX */
+  gap: 12px;
+  align-items: center;
+  max-width: 520px;
+  margin-top: 10px;
+}
+
+.page-about .about-form input{
+  flex: 1;
+  border: var(--soft);
+  padding: 12px 14px;
+}
+
+/* Botón */
+.page-about .about-btn{
+  border: var(--line);
+  background: #fff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* Legal */
+.page-about .about-legal{
+  margin: 14px 0 0;
+  font-size: 11px;
+  opacity: 0.9;
+
+  display: flex;              /* FLEXBOX */
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.page-about .about-legal a{
+  color: #111;
+  text-decoration: underline;
+}
+
+/* Pseudoclases */
+.page-about .about-legal a:hover{
+  opacity: 0.75;
+}
+.page-about .about-legal a:focus-visible{
+  outline: 2px solid #111;
+  outline-offset: 2px;
+}
+
+/* Responsive (ajustes de tamaño) */
+@media (max-width: 820px){
+  .page-about .about-hero{
+    padding-top: 54px;
+    padding-bottom: 54px;
+  }
+
+  .page-about .about-p{
+    font-size: 16px;
+  }
+
+  .page-about .about-p--spaced{
+    margin-top: 28px;
+  }
+
+  .page-about .about-form{
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 100%;
+  }
+}
+
+/* =========================
+PORTFOLIO (como Index)
+- GRID: cards 3 columnas / 1 columna (mobile)
+- Box Model: bordes/padding
+- Scope: solo .page-portfolio
+========================= */
+
+/* HERO: línea inferior + aire */
+.page-portfolio .portfolio-hero{
+  border-bottom: var(--line);
+  padding-bottom: 56px;
+}
+
+/* Más aire entre H1 y H2 */
+.page-portfolio .portfolio-hero__text h1{
+  margin-bottom: 24px !important;
+}
+
+.page-portfolio .portfolio-hero__text h2{
+  margin-top: 0 !important;
+}
+
+/* SECCIÓN IMÁGENES (como el Index) */
+.page-portfolio section.imagenes{
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+
+.page-portfolio .imagenes{
+  display: grid;                          /* GRID */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.page-portfolio .imagen{
+  display: grid;
+  gap: 10px;
+}
+
+.page-portfolio .imagen img{
+  width: 100%;
+  aspect-ratio: 4 / 3;                    /* igual index */
+  height: auto;
+  object-fit: cover;
+  border: var(--line);
+  display: block;
+}
+
+.page-portfolio .imagen h2{
+  margin: 0;
+  font-size: 12px;
+}
+
+.page-portfolio .imagen a{
+  font-size: 11px;
+  text-decoration: underline;
+  color: #111;
+}
+
+/* Mobile: 1 columna */
+@media (max-width: 820px){
+  .page-portfolio .imagenes{
+    grid-template-columns: 1fr;
+  }
+}
