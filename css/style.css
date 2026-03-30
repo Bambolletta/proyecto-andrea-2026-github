@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .mb-xs {
   margin-bottom: 6px;
 }
@@ -22,7 +23,9 @@
   padding-top: 18px;
 }
 
-.about-btn, .page-contacto .about-btn, .cta {
+.about-btn,
+.page-contacto .about-btn,
+.cta {
   border: var(--line);
   border-radius: 999px;
   font-size: 12px;
@@ -200,10 +203,7 @@ Main (Grid)
 main {
   display: grid;
   grid-template-columns: 1fr auto;
-  grid-template-areas:
-    "h1 cta"
-    "h2 cta"
-    "tag tag";
+  grid-template-areas: "h1 cta" "h2 cta" "tag tag";
   gap: 12px 18px;
   align-items: end;
   padding-top: 40px;
@@ -263,10 +263,29 @@ section:not(.imagenes):not(.lista) .cta {
 /* =========================
 CTA
 ========================= */
+.about-btn,
+.page-contacto .about-btn,
+.cta {
+  color: #111;
+  text-decoration: none;
+  background: transparent;
+}
+
 .cta {
   padding: 9px 16px;
   display: inline-block;
   line-height: 1;
+  color: #111;
+  text-decoration: none;
+  background: transparent;
+}
+
+.cta:hover,
+.cta:visited,
+.about-btn:hover,
+.about-btn:visited {
+  color: #111;
+  text-decoration: none;
 }
 
 h3 {
@@ -294,7 +313,7 @@ section.imagenes {
 
 .imagen img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4/3;
   height: auto;
   object-fit: cover;
   border: var(--line);
@@ -344,7 +363,8 @@ section.lista {
 Tipografía
 ========================= */
 main h1.fs-1,
-section h1.fs-1 {
+section h1.fs-1,
+section h2.fs-1 {
   font-size: 72px !important;
   line-height: 0.92 !important;
   letter-spacing: -0.02em;
@@ -384,21 +404,17 @@ Responsive general
   :root {
     --px: 24px;
   }
-
   .site-header {
     padding-top: 20px;
     padding-bottom: 20px;
   }
-
   .site-nav-desktop,
   .site-social-desktop {
     display: none;
   }
-
   .nav-toggle {
     display: block;
   }
-
   .mobile-menu {
     position: fixed;
     inset: 0;
@@ -410,18 +426,15 @@ Responsive general
     padding-top: 110px;
     padding-bottom: 40px;
   }
-
   .mobile-menu.is-open {
     display: block;
   }
-
   .mobile-menu__inner {
     min-height: calc(100dvh - 150px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-
   .mobile-menu__links {
     display: flex;
     flex-direction: column;
@@ -429,7 +442,6 @@ Responsive general
     gap: 14px;
     margin-top: 46px;
   }
-
   .mobile-menu__links a {
     color: #fff;
     text-decoration: none;
@@ -438,14 +450,12 @@ Responsive general
     font-weight: 400;
     text-transform: lowercase;
   }
-
   .mobile-menu__social {
     display: flex;
     justify-content: center;
     gap: 26px;
     padding-bottom: 10px;
   }
-
   .mobile-menu__social a {
     display: inline-flex;
     width: 38px;
@@ -454,69 +464,54 @@ Responsive general
     justify-content: center;
     text-decoration: none;
   }
-
   .mobile-menu__social img {
     display: block;
     width: 38px;
     height: 38px;
     object-fit: contain;
   }
-
   .site-header.menu-open {
     position: relative;
     z-index: 1000;
   }
-
   .site-header.menu-open .site-brand {
     color: #fff;
     border-color: #fff;
   }
-
   .site-header.menu-open .nav-toggle__icon::before,
   .site-header.menu-open .nav-toggle__icon::after {
     background: #fff;
   }
-
   main {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "h1"
-      "h2"
-      "cta"
-      "tag";
+    grid-template-areas: "h1" "h2" "cta" "tag";
     align-items: start;
   }
-
   main .cta {
     justify-self: start;
   }
-
   section:not(.imagenes):not(.lista) {
     grid-template-columns: 1fr;
     align-items: start;
   }
-
   section:not(.imagenes):not(.lista) .cta {
     grid-column: 1;
     justify-self: start;
   }
-
   .imagenes {
     grid-template-columns: 1fr;
   }
-
   main h1.fs-1,
-  section h1.fs-1 {
+  section h1.fs-1,
+  section h2.fs-1 {
     font-size: 52px !important;
     line-height: 0.95 !important;
   }
-
   main h2.fs-4,
   section h2.fs-4 {
     font-size: 14px !important;
   }
 }
-
 /* =========================
 SOBRE MÍ
 ========================= */
@@ -596,6 +591,10 @@ SOBRE MÍ
 .page-about .about-btn {
   padding: 10px 18px;
   background: #fff;
+  display: inline-block;
+  line-height: 1;
+  color: #111;
+  text-decoration: none;
 }
 
 .page-about .about-legal {
@@ -628,22 +627,18 @@ SOBRE MÍ
     padding-bottom: 54px;
     gap: 24px !important;
   }
-
   .page-about .about-p {
     font-size: 16px;
   }
-
   .page-about .about-p--spaced {
     margin-top: 28px;
   }
-
   .page-about .about-form {
     flex-direction: column;
     align-items: stretch;
     max-width: 100%;
   }
 }
-
 /* =========================
 PORTFOLIO
 ========================= */
@@ -678,7 +673,7 @@ PORTFOLIO
 
 .page-portfolio .imagen img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4/3;
   height: auto;
   object-fit: cover;
   border: var(--line);
@@ -701,7 +696,6 @@ PORTFOLIO
     grid-template-columns: 1fr;
   }
 }
-
 /* =========================
 CONTACTO
 ========================= */
@@ -837,6 +831,9 @@ CONTACTO
   padding: 10px 18px;
   background: #fff !important;
   color: #111;
+  display: inline-block;
+  line-height: 1;
+  text-decoration: none;
 }
 
 .page-contacto footer {
@@ -857,14 +854,14 @@ CONTACTO
   .page-contacto .contacto-row {
     grid-template-columns: 1fr;
   }
-
   .page-contacto main.contacto-hero {
     padding-top: 44px;
     padding-bottom: 44px;
   }
-
   .page-contacto .about-form {
     flex-direction: column;
     align-items: stretch;
   }
 }
+
+/*# sourceMappingURL=style.css.map */
