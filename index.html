@@ -19,20 +19,59 @@
 </head>
 
 <body>
-  <!-- Header: logo + menú -->
-  <header>
-    <nav>
-      <a href="index.html" class="text-left fw-normal text-lowercase fs-5">
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href="index.html" class="site-brand text-left fw-normal text-lowercase fs-5">
         andrea-campoy.com
       </a>
 
-      <a href="pages/sobre-mi.html" class="text-end fw-normal text-lowercase fs-5">sobre mí</a>
-      <a href="pages/portfolio.html" class="text-end fw-normal text-lowercase fs-5">portfolio</a>
-      <a href="pages/contacto.html" class="text-end fw-normal text-lowercase fs-5">contacto</a>
+      <div class="site-nav-desktop">
+        <a href="pages/sobre-mi.html" class="fw-normal text-lowercase fs-5">sobre mí</a>
+        <a href="pages/portfolio.html" class="fw-normal text-lowercase fs-5">portfolio</a>
+        <a href="pages/contacto.html" class="fw-normal text-lowercase fs-5">contacto</a>
+      </div>
+
+      <div class="site-social-desktop">
+        <a href="https://www.behance.net/andreacampoy/projects" aria-label="Behance" target="_blank" rel="noopener noreferrer">
+          <img src="img/icon-behance.png" alt="">
+        </a>
+        <a href="https://www.linkedin.com/in/andrea-campoy-perfilprofesional/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+          <img src="img/icon-linkedin.png" alt="">
+        </a>
+      </div>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Abrir menú"
+      >
+        <span class="nav-toggle__icon"></span>
+      </button>
     </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-menu__inner">
+        <div class="mobile-menu__links">
+          <a href="pages/sobre-mi.html">sobre mí</a>
+          <a href="pages/portfolio.html">portfolio</a>
+          <a href="pages/contacto.html">contacto</a>
+        </div>
+
+        <div class="mobile-menu__social">
+          <a href="https://www.behance.net/andreacampoy/projects" aria-label="Behance" target="_blank" rel="noopener noreferrer">
+            <img src="img/icon-behance_2.png" alt="">
+          </a>
+
+          <a href="https://www.linkedin.com/in/andrea-campoy-perfilprofesional/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <img src="img/icon-linkedin_2.png" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <!-- Main: hero principal -->
   <main>
     <h1 class="text-left fw-bold text-lowercase fs-1">la pieza que falta.</h1>
     <h2 class="text-left fw-normal fs-4">Diseño + servicios creativos para ayudarte a crecer.</h2>
@@ -40,14 +79,12 @@
     <p class="text-center">Impreso + Digital. Branding. Editorial. Campañas. Packaging. Gestión, y más.</p>
   </main>
 
-  <!-- Sección 1: hero -->
   <section>
     <h1 class="text-left fw-bold text-lowercase fs-1">el trabajo.</h1>
     <h2 class="text-left fw-normal fs-4">La creatividad y conexión hablan por sí misma.</h2>
     <h3 class="text-end cta">Conocé el trabajo</h3>
   </section>
 
-  <!-- Sección 2: grilla de imágenes -->
   <section class="imagenes">
     <div class="imagen">
       <img src="img/lightbutterfly.jpg.png" alt="Mariposa, ejemplo de trabajo 1">
@@ -68,14 +105,12 @@
     </div>
   </section>
 
-  <!-- Sección 3: hero -->
   <section>
     <h1 class="text-left fw-bold text-lowercase fs-1">el enfoque.</h1>
     <h2 class="text-left fw-normal fs-4">Dirección y diseño a tu medida.</h2>
     <h3 class="text-end cta">Conectemos</h3>
   </section>
 
-  <!-- Sección 4: lista tipo “Item +” -->
   <section class="lista">
     <ul class="lista-items">
       <li>Estrategia.<span class="plus">+</span></li>
@@ -86,16 +121,47 @@
     </ul>
   </section>
 
-  <!-- Sección 5: hero final -->
   <section>
     <h1 class="text-left fw-bold text-lowercase fs-1">el pensamiento.</h1>
     <h2 class="text-left fw-normal fs-4">Te cuento más sobre la filosofía atrás de mi trabajo.</h2>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p class="black">Todos los derechos reservados Andrea Campoy, 2026 | Política de privacidad | Términos y condiciones | Lineamientos editoriales</p>
   </footer>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const siteHeader = document.querySelector('.site-header');
+
+    if (navToggle && mobileMenu && siteHeader) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navToggle.classList.toggle('is-open');
+
+        mobileMenu.classList.toggle('is-open', isOpen);
+        siteHeader.classList.toggle('menu-open', isOpen);
+
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        navToggle.setAttribute(
+          'aria-label',
+          isOpen ? 'Cerrar menú' : 'Abrir menú'
+        );
+
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navToggle.classList.remove('is-open');
+          mobileMenu.classList.remove('is-open');
+          siteHeader.classList.remove('menu-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.setAttribute('aria-label', 'Abrir menú');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
 </body>
 </html>
-<!-- rebuild pages -->

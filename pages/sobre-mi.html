@@ -12,40 +12,86 @@
     crossorigin="anonymous"
   >
 
-  <!-- CSS propio (ruta desde /pages) -->
+  <!-- CSS propio -->
   <link rel="stylesheet" href="../css/style.css">
 
   <title>Sobre mí</title>
 </head>
 
 <body class="page-about">
-  <!-- HEADER (Flexbox en CSS + utilidades Bootstrap en texto) -->
-  <header>
-    <nav>
-      <a href="../index.html" class="text-left fw-normal text-lowercase fs-5">andrea-campoy.com</a>
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href="../index.html" class="site-brand text-left fw-normal text-lowercase fs-5">
+        andrea-campoy.com
+      </a>
 
-      <a href="sobre-mi.html" class="text-end fw-normal text-lowercase fs-5">sobre mí</a>
-      <a href="portfolio.html" class="text-end fw-normal text-lowercase fs-5">portfolio</a>
-      <a href="contacto.html" class="text-end fw-normal text-lowercase fs-5">contacto</a>
+      <div class="site-nav-desktop">
+        <a href="sobre-mi.html" class="fw-normal text-lowercase fs-5 is-active">sobre mí</a>
+        <a href="portfolio.html" class="fw-normal text-lowercase fs-5">portfolio</a>
+        <a href="contacto.html" class="fw-normal text-lowercase fs-5">contacto</a>
+      </div>
 
-      <!-- Mobile: “+” (sin JS, solo visual) -->
-      <span class="nav-plus" aria-hidden="true">+</span>
+      <div class="site-social-desktop">
+        <a href="https://www.behance.net/andreacampoy/projects" aria-label="Behance" target="_blank" rel="noopener noreferrer">
+          <img src="../img/icon-behance.png" alt="">
+        </a>
+        <a href="https://www.linkedin.com/in/andrea-campoy-perfilprofesional/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+          <img src="../img/icon-linkedin.png" alt="">
+        </a>
+      </div>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Abrir menú"
+      >
+        <span class="nav-toggle__icon"></span>
+      </button>
     </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-menu__inner">
+        <div class="mobile-menu__links">
+          <a href="sobre-mi.html">sobre mí</a>
+          <a href="portfolio.html">portfolio</a>
+          <a href="contacto.html">contacto</a>
+        </div>
+
+        <div class="mobile-menu__social">
+          <a href="https://www.behance.net/andreacampoy/projects" aria-label="Behance" target="_blank" rel="noopener noreferrer">
+            <img src="../img/icon-behance_2.png" alt="">
+          </a>
+          <a href="https://www.linkedin.com/in/andrea-campoy-perfilprofesional/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <img src="../img/icon-linkedin_2.png" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <!-- HERO (Grid en CSS) -->
+  <!-- Main -->
   <main class="about-hero">
-    <h1 class="text-left fw-bold text-lowercase fs-1">Sobre<br>mí.</h1>
+    <h1 class="text-left fw-bold text-lowercase fs-1">sobre<br>mí.</h1>
 
-    <p class="about-p">Soy Diseñadora Gráfica, con experiencia en diseño de marcas, editorial y digital, y Diseñadora UX/UI, con un especial interés en accesibilidad digital. Me apasiona mi profesión y también el aprendizaje constante: disfruto estudiar, seguir formándome e incorporar nuevas herramientas, perspectivas y conocimientos que enriquezcan mi práctica. A lo largo de mi recorrido me he desarrollado en áreas como marketing digital, producción editorial, dirección de arte, creatividad, experiencia de usuario e interfaz de usuario, construyendo un perfil versátil, estratégico y sensible a las necesidades de cada proyecto.</p>
-    <p class="about-p about-p--spaced">Mi perfil se nutre de la interdisciplina, de la curiosidad y de la convicción de que los mejores procesos nacen del intercambio de saberes. Me interesa formar parte de equipos colaborativos, donde sea posible aportar desde mi experiencia, seguir profundizando mi profesión y crecer junto a otras personas y áreas. Entiendo el diseño no solo como una práctica técnica o estética, sino también como una forma de pensar, de resolver y de generar experiencias más claras, significativas e inclusivas.</p>
+    <p class="about-p">
+      Soy Diseñadora Gráfica, con experiencia en diseño de marcas, editorial y digital, y Diseñadora UX/UI, con un especial interés en accesibilidad digital. Me apasiona mi profesión y también el aprendizaje constante: disfruto estudiar, seguir formándome e incorporar nuevas herramientas, perspectivas y conocimientos que enriquezcan mi práctica. A lo largo de mi recorrido me he desarrollado en áreas como marketing digital, producción editorial, dirección de arte, creatividad, experiencia de usuario e interfaz de usuario, construyendo un perfil versátil, estratégico y sensible a las necesidades de cada proyecto.
+    </p>
+
+    <p class="about-p about-p--spaced">
+      Mi perfil se nutre de la interdisciplina, de la curiosidad y de la convicción de que los mejores procesos nacen del intercambio de saberes. Me interesa formar parte de equipos colaborativos, donde sea posible aportar desde mi experiencia, seguir profundizando mi profesión y crecer junto a otras personas y áreas. Entiendo el diseño no solo como una práctica técnica o estética, sino también como una forma de pensar, de resolver y de generar experiencias más claras, significativas e inclusivas.
+    </p>
   </main>
 
-  <!-- BLOQUE FINAL (Grid/Flex en CSS) -->
+  <!-- Bloque final -->
   <section class="about-bottom">
     <div class="about-bottom__content">
       <h2 class="fw-normal fs-4">Suscribite aquí</h2>
-      <p class="about-bottom__text">Para recibir actualizaciones de mi trabajo, te invito a que me dejes tu mail</p>
+      <p class="about-bottom__text">
+        Para recibir actualizaciones de mi trabajo, te invito a que me dejes tu mail
+      </p>
 
       <form class="about-form" action="#" method="post">
         <label class="visually-hidden" for="email">Email</label>
@@ -55,8 +101,45 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p class="black">Todos los derechos reservados Andrea Campoy, 2026 | Política de privacidad | Términos y condiciones | Lineamientos editoriales</p>
+    <p class="black">
+      Todos los derechos reservados Andrea Campoy, 2026 | Política de privacidad | Términos y condiciones | Lineamientos editoriales
+    </p>
   </footer>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const siteHeader = document.querySelector('.site-header');
+
+    if (navToggle && mobileMenu && siteHeader) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navToggle.classList.toggle('is-open');
+
+        mobileMenu.classList.toggle('is-open', isOpen);
+        siteHeader.classList.toggle('menu-open', isOpen);
+
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        navToggle.setAttribute(
+          'aria-label',
+          isOpen ? 'Cerrar menú' : 'Abrir menú'
+        );
+
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navToggle.classList.remove('is-open');
+          mobileMenu.classList.remove('is-open');
+          siteHeader.classList.remove('menu-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.setAttribute('aria-label', 'Abrir menú');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
 </body>
 </html>
