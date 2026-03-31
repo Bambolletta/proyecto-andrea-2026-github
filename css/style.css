@@ -107,6 +107,16 @@ HEADER / NAV NUEVO
   display: flex;
   align-items: center;
   gap: 6px;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.site-nav-desktop li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .site-nav-desktop a {
